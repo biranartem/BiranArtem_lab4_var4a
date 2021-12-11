@@ -202,10 +202,14 @@ minY
     int sumOfDigits(double x) {
         int y = (int) x;
         int sum = 0;
-        while (y != 0) {
-            sum += y % 10;
+        if (y != 0){
+            sum = y % 2;
+        }
+        /*while (y != 0) {
+            sum += y % 2;
             y = y / 10;
         }
+        */
         return sum;
     }
 
@@ -219,7 +223,7 @@ minY
         canvas.setPaint(Color.RED);
         for (Double[] point : graphicsData) {
 // Если сумма цифр в записи целой часьти значения функции в точке меньше десятси
-            if (sumOfDigits(point[1]) < 10) {
+            if (sumOfDigits(point[1]) != 0) {
                 // Выделяем точку синим цветом
                 // Закрашеваем точку синим цветом
                 canvas.setColor(Color.BLUE);
